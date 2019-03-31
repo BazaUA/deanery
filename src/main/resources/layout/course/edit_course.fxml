@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dekanat.controller.courses.CourseEditInfoController">
+   <children>
+      <Button fx:id="submitButton" layoutX="300.0" layoutY="360.0" mnemonicParsing="false" onMouseClicked="#save" text="Підтвердити" underline="true">
+         <font>
+            <Font name="Century Gothic Bold" size="13.0" />
+         </font></Button>
+      <Label layoutX="47.0" layoutY="25.0" text="Назва курсу">
+         <font>
+            <Font name="Century Gothic Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="47.0" layoutY="50.0" text="Кількість лекцій">
+         <font>
+            <Font name="Century Gothic Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="47.0" layoutY="75.0" text="Кількість семінарів">
+         <font>
+            <Font name="Century Gothic Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="47.0" layoutY="100.0" text="Підсумок">
+         <font>
+            <Font name="Century Gothic Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="47.0" layoutY="125.0" text="Нормативний придмет">
+         <font>
+            <Font name="Century Gothic Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="47.0" layoutY="150.0" text="Кількість кредитів">
+         <font>
+            <Font name="Century Gothic Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="47.0" layoutY="175.0" text="Кафедра">
+         <font>
+            <Font name="Century Gothic Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="47.0" layoutY="200.0" text="Прослухані придмети">
+         <font>
+            <Font name="Century Gothic Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameOfCourse" layoutX="300.0" layoutY="22.0" prefHeight="25.0" prefWidth="221.0" />
+      <TextField fx:id="numberOfLectures" layoutX="300.0" layoutY="47.0" prefHeight="25.0" prefWidth="221.0" />
+      <TextField fx:id="numberOfPractices" layoutX="300.0" layoutY="72.0" prefHeight="25.0" prefWidth="221.0" />
+      <TextField fx:id="numberOfCredits" layoutX="300.0" layoutY="147.0" prefHeight="25.0" prefWidth="221.0" />
+      <ChoiceBox fx:id="summarize" layoutX="300.0" layoutY="97.0" prefHeight="25.0" prefWidth="221.0" />
+      <CheckBox fx:id="isNormative" layoutX="400.0" layoutY="126.0" mnemonicParsing="false" />
+      <ChoiceBox fx:id="cathedra" layoutX="300.0" layoutY="172.0" prefHeight="25.0" prefWidth="221.0" />
+      <ListView fx:id="learnedCourses" layoutX="300.0" layoutY="200.0" prefHeight="141.0" prefWidth="221.0" />
+   </children>
+</AnchorPane>
