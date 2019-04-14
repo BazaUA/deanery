@@ -26,3 +26,5 @@ out/
 target/
 .idea/
 dekanat.iml
+
+.DS_Store

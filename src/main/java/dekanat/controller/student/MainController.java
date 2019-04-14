@@ -19,7 +19,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class MainController implements Initializable {
 
@@ -179,18 +178,20 @@ public class MainController implements Initializable {
     }
 
     public void getAllMarks(MouseEvent mouseEvent) {
-        AtomicReference<String> result = new AtomicReference<>("");
+        String result = "";
         if (!checkForNoSelectedItem(table)) {
             return;
         }
 
+        Student student = table.getSelectionModel().getSelectedItem();
 
+        List<Results> results = resultsDao.getResultsByStudentId(student.getId());
 
-        List<Results> results = resultsDao.getResultsByStudentId(table.getSelectionModel().getSelectedItem().getId());
+        for(Results results1:results){
+            result+=String.valueOf(results1.getGrade())+'\n';
+        }
 
-        results.stream().forEach(student -> result.updateAndGet(v -> v + student.getGrade() + '\n'));
-
-        Alert alert = new Alert(Alert.AlertType.INFORMATION, result.get(), ButtonType.OK);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, result, ButtonType.OK);
         alert.getDialogPane().setMinWidth(600);
         alert.showAndWait();
     }
