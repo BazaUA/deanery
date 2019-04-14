@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="819.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dekanat.controller.sesia.MainController">
+   <children>
+      <MenuBar prefHeight="30.0" prefWidth="824.0" VBox.vgrow="NEVER">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="New" />
+                  <MenuItem mnemonicParsing="false" text="Open…" />
+                  <Menu mnemonicParsing="false" text="Open Recent" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" text="Save" />
+                  <MenuItem mnemonicParsing="false" text="Save As…" />
+                  <MenuItem mnemonicParsing="false" text="Revert" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Preferences…" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Quit" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Undo" />
+                  <MenuItem mnemonicParsing="false" text="Redo" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Cut" />
+                  <MenuItem mnemonicParsing="false" text="Copy" />
+                  <MenuItem mnemonicParsing="false" text="Paste" />
+                  <MenuItem mnemonicParsing="false" text="Delete" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Select All" />
+                  <MenuItem mnemonicParsing="false" text="Unselect All" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="480.0" prefWidth="770.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TabPane layoutX="5.0" layoutY="12.0" prefHeight="515.0" prefWidth="806.0" tabClosingPolicy="UNAVAILABLE">
+               <tabs>
+                  <Tab text="Розклад сесії ">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="484.0" prefWidth="787.0">
+                           <children>
+                              <TableView fx:id="sesiaSchedule" layoutY="5.0" prefHeight="377.0" prefWidth="800.0">
+                                 <columns>
+                                 </columns>
+                              </TableView>
+                              <ToolBar layoutX="588.0" layoutY="399.0" prefHeight="40.0" prefWidth="172.0">
+                                 <items>
+                                    <Button fx:id="schedule_button" mnemonicParsing="false" onMouseClicked="#createSchedule" text="Сформувати розклад" />
+                                 </items>
+                              </ToolBar>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Ведення результатів сесії">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="424.0" prefWidth="623.0">
+                           <children>
+                              <ToolBar layoutX="8.0" layoutY="8.0" prefHeight="43.0" prefWidth="779.0">
+                                 <items>
+                                    <Button fx:id="add_grade" mnemonicParsing="false" onMouseClicked="#addNewGrade" prefHeight="27.0" prefWidth="144.0" text="Додати" />
+                                    <Button layoutX="10.0" layoutY="11.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="144.0" text="Редагувати" />
+                                    <Button fx:id="deleteButton" layoutX="74.0" layoutY="11.0" mnemonicParsing="false" onMouseClicked="#deleteItem" prefHeight="27.0" prefWidth="144.0" text="Видалити" />
+                                    <Button fx:id="show_grades" layoutX="176.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#showGrades" prefHeight="27.0" prefWidth="144.0" text="Перегянути" />
+                                 </items>
+                              </ToolBar>
+                              <TableView fx:id="gradesList" editable="true" layoutX="14.0" layoutY="51.0" prefHeight="414.0" prefWidth="777.0">
+                                 <columns>
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Розклад сесії по групам/викладачам/кафедрам">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="372.0" prefWidth="629.0">
+                           <children>
+                              <ButtonBar layoutX="399.0" layoutY="263.0" prefHeight="40.0" prefWidth="200.0" />
+                              <ToolBar layoutX="5.0" prefHeight="43.0" prefWidth="788.0">
+                                 <items>
+                                    <Button fx:id="filtered_schedule" mnemonicParsing="false" onMouseClicked="#createFilteredSchedule" text="Сформувати розклад" />
+                                    <ChoiceBox fx:id="groupPairs" prefWidth="150.0" />
+                                    <ChoiceBox fx:id="Lecturers" prefWidth="150.0" />
+                                    <ChoiceBox fx:id="Cathedras" prefWidth="150.0" />
+                                 </items>
+                              </ToolBar>
+                              <TableView fx:id="sesiaScheduletFiltered" layoutY="54.0" prefHeight="412.0" prefWidth="798.0">
+                                 <columns>
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+
+               </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

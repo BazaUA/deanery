@@ -14,7 +14,7 @@ public class MyDataSourceFactory {
         mysqlDS = new MysqlDataSource();
         mysqlDS.setURL("jdbc:mysql://localhost:3306/dekanat");
         mysqlDS.setUser("root");
-        mysqlDS.setPassword("12345");
+        mysqlDS.setPassword("root");
         return mysqlDS;
 
     }

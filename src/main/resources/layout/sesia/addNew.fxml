@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dekanat.controller.sesia.AddNewController">
+    <children>
+        <Button fx:id="submitButton" layoutX="251.0" layoutY="329.0" mnemonicParsing="false" onMouseClicked="#addResults" text="Підтвердити" underline="true">
+            <font>
+                <Font name="Century Gothic Bold" size="13.0" />
+            </font>
+        </Button>
+        <Label layoutX="42.0" layoutY="56.0" text="Студент">
+            <font>
+                <Font name="Century Gothic Bold" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="51.0" layoutY="99.0" text="Група">
+            <font>
+                <Font name="Century Gothic Bold" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="47.0" layoutY="150.0" text="Оцінка">
+            <font>
+                <Font name="Century Gothic Bold" size="15.0" />
+            </font>
+        </Label>
+        <TextField fx:id="studentGrade" layoutX="300.0" layoutY="147.0" prefHeight="25.0" prefWidth="221.0" />
+      <ChoiceBox fx:id="studentsChoise" layoutX="301.0" layoutY="52.0" prefHeight="27.0" prefWidth="221.0" />
+      <ChoiceBox fx:id="groupsChoise" layoutX="301.0" layoutY="95.0" prefHeight="27.0" prefWidth="221.0" />
+      <Button layoutX="148.0" layoutY="52.0" mnemonicParsing="false" onMouseClicked="#loadGroups" text="Завантажити групи" underline="true">
+         <font>
+            <Font name="Century Gothic Bold" size="13.0" />
+         </font>
+      </Button>
+
+    </children>
+</AnchorPane>

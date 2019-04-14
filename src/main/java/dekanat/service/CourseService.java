@@ -3,7 +3,6 @@ package dekanat.service;
 import dekanat.dao.CourseDAO;
 import dekanat.entity.CourseEntity;
 import dekanat.entity.CourseHasPrerequisiteCourseEntity;
-import dekanat.entity.Sesia;
 
 import java.util.List;
 

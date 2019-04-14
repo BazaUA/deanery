@@ -1,4 +1,4 @@
-package dekanat.controller;
+package dekanat.controller.courses;
 
 import com.sun.javafx.collections.ObservableListWrapper;
 import dekanat.controller.courses.CourseEditInfoController;
