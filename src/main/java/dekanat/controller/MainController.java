@@ -29,8 +29,6 @@ public class MainController {
         stage.show();
     }
 
-    public void openDepartmentMain(MouseEvent mouseEvent) {
-    }
 
     public void openSesiaMain(MouseEvent mouseEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("layout/sesia/mainSesia.fxml"));
@@ -84,5 +82,13 @@ public class MainController {
         stage.show();
         screenController.activate("main");
 
+    }
+
+    public void openDekanatMain(MouseEvent mouseEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("layout/dekanat/dekanatMain.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("Деканат");
+        stage.setScene(new Scene(root, 650, 400));
+        stage.show();
     }
 }

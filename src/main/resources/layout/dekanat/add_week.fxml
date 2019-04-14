@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.control.DatePicker?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dekanat.controller.dekanat.WeekController">
+    <children>
+        <Button fx:id="submitButton" layoutX="300.0" layoutY="360.0" mnemonicParsing="false" onMouseClicked="#addWeek" text="Підтвердити" underline="true">
+            <font>
+                <Font name="Century Gothic Bold" size="13.0" />
+            </font>
+        </Button>
+        <Label layoutX="47.0" layoutY="25.0" text="Номер тижня">
+            <font>
+                <Font name="Century Gothic Bold" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="47.0" layoutY="50.0" text="Початок">
+            <font>
+                <Font name="Century Gothic Bold" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="47.0" layoutY="75.0" text="Кінець">
+            <font>
+                <Font name="Century Gothic Bold" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="47.0" layoutY="100.0" text="Семестр">
+            <font>
+                <Font name="Century Gothic Bold" size="15.0" />
+            </font>
+        </Label>
+        <TextField fx:id="numberOfWeek" layoutX="300.0" layoutY="22.0" prefHeight="25.0" prefWidth="221.0" />
+        <DatePicker fx:id="week_start" layoutX="300.0" layoutY="47.0" prefHeight="25.0" prefWidth="221.0" />
+        <DatePicker fx:id="week_end" layoutX="300.0" layoutY="72.0" prefHeight="25.0" prefWidth="221.0" />
+        <TextField fx:id="week_semester" layoutX="300.0" layoutY="97.0" prefHeight="25.0" prefWidth="221.0" />
+
+    </children>
+</AnchorPane>

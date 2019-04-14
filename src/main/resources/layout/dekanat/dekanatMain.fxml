@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dekanat.controller.dekanat.MainController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+        <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
+          <font>
+            <Font size="18.0" />
+          </font>
+        </Label>
+            <TabPane layoutX="6.0" layoutY="3.0" prefHeight="364.0" prefWidth="627.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Семестри ">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="291.0" prefWidth="627.0">
+                           <children>
+                              <TableView fx:id="semestrsTable" layoutX="7.0" layoutY="5.0" prefHeight="271.0" prefWidth="619.0">
+                                <columns>
+                                  <TableColumn fx:id="semestrsYear" prefWidth="75.0" text="Рік" />
+                                  <TableColumn fx:id="semestrsNumber" prefWidth="146.0" text="Номер семестру" />
+                                </columns>
+                              </TableView>
+                              <Button fx:id="addSemestr" layoutX="14.0" layoutY="283.0" mnemonicParsing="false" text="Додати" onMouseClicked="#openAddSemestrWindow" />
+                              <Button fx:id="editSemestr" layoutX="99.0" layoutY="283.0" mnemonicParsing="false" text="Редагувати" onMouseClicked="#openEditSemestrWindow" />
+                              <Button fx:id="deleteSemestr" layoutX="533.0" layoutY="283.0" mnemonicParsing="false" text="Видалити" onMouseClicked="#deleteSemestr" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Тижні">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView  fx:id="weeksTable" layoutX="7.0" layoutY="7.0" prefHeight="267.0" prefWidth="611.0">
+                                <columns>
+                                  <TableColumn fx:id="weekNumber" prefWidth="131.0" text="Номер тижня" />
+                                  <TableColumn fx:id="weekStart" prefWidth="79.0" text="Початок" />
+                                    <TableColumn fx:id="weekEnd" prefWidth="79.0" text="Кінець" />
+                                    <TableColumn fx:id="weekSemestr" prefWidth="79.0" text="Семестр" />
+                                </columns>
+                              </TableView>
+                              <Button fx:id="addWeek" layoutX="14.0" layoutY="282.0" mnemonicParsing="false" text="Додати " onMouseClicked="#openAddWeekWindow"/>
+                              <Button fx:id="editWeek" layoutX="95.0" layoutY="282.0" mnemonicParsing="false" text="Редагувати" onMouseClicked="#openEditWeekWindow"/>
+                              <Button fx:id="deleteWeek" layoutX="533.0" layoutY="282.0" mnemonicParsing="false" text="Видалити" onMouseClicked="#deleteWeek" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Потоки">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="streamTable" layoutX="2.0" layoutY="7.0" prefHeight="271.0" prefWidth="620.0">
+                                <columns>
+                                  <TableColumn fx:id="streamName" prefWidth="133.0" text="Назва потоку" />
+                                </columns>
+                              </TableView>
+                              <Button fx:id="addStream" layoutX="14.0" layoutY="284.0" mnemonicParsing="false" text="Додати " onMouseClicked="#openAddStreamWindow" />
+                              <Button fx:id="editStream" layoutX="93.0" layoutY="284.0" mnemonicParsing="false" text="Редагувати" onMouseClicked="#openEditStreamWindow"/>
+                              <Button fx:id="deleteStream" layoutX="542.0" layoutY="284.0" mnemonicParsing="false" text="Видалити" onMouseClicked="#deleteStream" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Групи">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="groupTable" layoutX="4.0" layoutY="7.0" prefHeight="265.0" prefWidth="617.0">
+                                <columns>
+                                  <TableColumn fx:id="course" prefWidth="75.0" text="Курс" />
+                                  <TableColumn fx:id="group" prefWidth="75.0" text="Група" />
+                                    <TableColumn fx:id="stream" prefWidth="75.0" text="Потік" />
+                                </columns>
+                              </TableView>
+                              <Button fx:id="addGroup" layoutX="14.0" layoutY="282.0" mnemonicParsing="false" text="Додати " onMouseClicked="#openAddGroupWindow" />
+                              <Button fx:id="editGroup" layoutX="97.0" layoutY="282.0" mnemonicParsing="false" text="Редагувати" onMouseClicked="#openEditGroupWindow" />
+                              <Button fx:id="deleteGroup" layoutX="533.0" layoutY="282.0" mnemonicParsing="false" text="Видалити" onMouseClicked="#deleteGroup"/>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Аудиторії">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="auditoryTable" layoutX="5.0" layoutY="7.0" prefHeight="259.0" prefWidth="617.0">
+                                <columns>
+                                  <TableColumn fx:id="auditoryNumber" prefWidth="75.0" text="Номер" />
+                                  <TableColumn fx:id="auditorybuilding" prefWidth="75.0" text="Корпус" />
+                                </columns>
+                              </TableView>
+                              <Button fx:id="addAuditory" layoutX="14.0" layoutY="276.0" mnemonicParsing="false" text="Додати" onMouseClicked="#openAddAuditoryWindow" />
+                              <Button fx:id="editAuditory" layoutX="95.0" layoutY="276.0" mnemonicParsing="false" text="Редагувати" onMouseClicked="#openEditAuditoryWindow" />
+                              <Button fx:id="deleteAuditory" layoutX="533.0" layoutY="276.0" mnemonicParsing="false" text="Видалити" onMouseClicked="#deleteAuditory"/>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
