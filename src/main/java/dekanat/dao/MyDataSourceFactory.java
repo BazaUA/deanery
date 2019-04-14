@@ -12,7 +12,7 @@ public class MyDataSourceFactory {
 
         MysqlDataSource mysqlDS = null;
         mysqlDS = new MysqlDataSource();
-        mysqlDS.setURL("jdbc:mysql://localhost:3306/dekanat");
+        mysqlDS.setURL("jdbc:mysql://localhost:3306/dekanat?characterEncoding=utf8");
         mysqlDS.setUser("root");
         mysqlDS.setPassword("root");
         return mysqlDS;

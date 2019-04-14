@@ -3,6 +3,7 @@ package dekanat.entity;
 import java.io.Serializable;
 
 public class SemesterEntity implements Serializable {
+
     private int id;
     private int year;
     private String semester;

@@ -46,4 +46,24 @@ public class SemesterDAO {
 
     }
 
+
+    public SemesterEntity getByName(String semester) {
+        String sql = "SELECT * FROM semesters WHERE semesters.semester = ?";
+        RowMapper<SemesterEntity> rowMapper = new SemesterMapper();
+        return this.jdbcTemplate.queryForObject(sql, rowMapper,semester);
+
+    }
+
+    public int addSemestr(SemesterEntity c) {
+        String sql = "INSERT INTO semesters (year, semester) " +
+                "VALUES (?,?)";
+
+        jdbcTemplate.update(sql, c.getYear(), c.getSemester());
+        return getByName(c.getSemester()).getId();
+    }
+    public void deleteById(int id) {
+        String sql1 = "DELETE FROM Semesters WHERE Semesters.id = ? ";
+        jdbcTemplate.update(sql1, id);
+    }
+
 }

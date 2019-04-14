@@ -72,8 +72,8 @@
                         </Label>
                         <ListView layoutX="11.0" layoutY="18.0" prefHeight="148.0" prefWidth="200.0" />
                         <Button fx:id="student_button" layoutX="14.0" layoutY="23.0" mnemonicParsing="false" onMouseClicked="#openStudentMain" prefHeight="27.0" prefWidth="193.0" text="Студент" />
-                        <Button fx:id="course_button" layoutX="14.0" layoutY="51.0" mnemonicParsing="false" onMouseClicked="#openCourseMain" prefHeight="27.0" prefWidth="193.0" text="Деканат" />
-                        <Button fx:id="department_button" layoutX="15.0" layoutY="79.0" mnemonicParsing="false" onMouseClicked="#openDepartmentMain" prefHeight="27.0" prefWidth="193.0" text="Кафедра" />
+                        <Button fx:id="course_button" layoutX="14.0" layoutY="51.0" mnemonicParsing="false" onMouseClicked="#openCourseMain" prefHeight="27.0" prefWidth="193.0" text="Курс" />
+                        <Button fx:id="department_button" layoutX="15.0" layoutY="79.0" mnemonicParsing="false" onMouseClicked="#openDekanatMain" prefHeight="27.0" prefWidth="193.0" text="Деканат" />
                         <Button fx:id="sesia_button" layoutX="15.0" layoutY="107.0" mnemonicParsing="false" onMouseClicked="#openSesiaMain" prefHeight="27.0" prefWidth="193.0" text="Сесія " />
                         <Button fx:id="schedule_buttton" layoutX="14.0" layoutY="135.0" mnemonicParsing="false" onMouseClicked="#openScheduleMain" prefHeight="27.0" prefWidth="193.0" text="Заняття" />
                     </children>
