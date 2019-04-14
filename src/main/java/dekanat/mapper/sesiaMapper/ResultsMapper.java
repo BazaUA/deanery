@@ -19,7 +19,7 @@ public class ResultsMapper implements RowMapper<Results> {
         r.setLecturerName(resultSet.getString(4));
         r.setSummarizeName(resultSet.getString(5));
         r.setGroupNumber(resultSet.getInt(6));
-        r.setGrade(resultSet.getString(7));
+        r.setGrade(resultSet.getInt(7));
         r.setGradeId(resultSet.getInt(8));
         r.setGroupId(resultSet.getInt(9));
         r.setStudentId(resultSet.getInt(10));

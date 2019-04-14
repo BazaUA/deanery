@@ -306,7 +306,7 @@ public class MainController implements Initializable {
                     public void handle(TableColumn.CellEditEvent<Results, String> t) {
                         ((Results) t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())
-                        ).setGrade(t.getNewValue());
+                        ).setGrade(Integer.valueOf(t.getNewValue()));
 
 
                         resultsDao.updateResult(t.getNewValue(),gradesList.getSelectionModel().getSelectedItem().getGradeId());

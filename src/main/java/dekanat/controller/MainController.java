@@ -13,7 +13,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class MainController {
-    public void openStudentMain(MouseEvent mouseEvent) {
+    public void openStudentMain(MouseEvent mouseEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("layout/student/main.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("Курс");
+        stage.setScene(new Scene(root, 600, 400));
+        stage.show();
     }
 
     public void openCourseMain(MouseEvent mouseEvent) throws IOException {

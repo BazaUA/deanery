@@ -5,19 +5,20 @@ import dekanat.entity.sesiaEntity.Results;
 import dekanat.mapper.sesiaMapper.ResultsMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 
 import javax.sql.DataSource;
 import java.util.List;
 
 public class ResultsDao {
 
-    private JdbcTemplate jdbcTemplate;
+    private SimpleJdbcTemplate jdbcTemplate;
     private DataSource dataSource;
 
     public ResultsDao(){
         dataSource = MyDataSourceFactory.getMySQLDataSource();
         System.out.println(dataSource);
-        jdbcTemplate = new JdbcTemplate(dataSource);
+        jdbcTemplate = new SimpleJdbcTemplate(dataSource);
     }
 
     public List<Results> getResults(){
@@ -28,6 +29,16 @@ public class ResultsDao {
                 "inner join Student on Student.id = GroupToStudent.student_id) inner join dekanat.StudentsResults on  dekanat.StudentsResults.student_id = Student.id;";
         RowMapper<Results> rowMapper = new ResultsMapper();
         return this.jdbcTemplate.query(sql, rowMapper);
+    }
+
+    public List<Results> getResultsByStudentId(int id){
+        String sql = "SELECT Student.lastname, Courses.name,Cathedras.name, Lecturers.name,Courses.summarize,Groups.group_no, dekanat.StudentsResults.grade, " +
+                "StudentsResults.id, StudentsResults.group_id, StudentsResults.student_id,StudentsResults.id " +
+                "From (((((Courses inner join Cathedras on Courses.cathedra_id = Cathedras.id) inner join Lecturers on Lecturers.cathedra_id = Cathedras.id) " +
+                "inner join Groups on Groups.course_id = Courses.id) inner join GroupToStudent on GroupToStudent.group_id = Groups.id) " +
+                "inner join Student on Student.id = GroupToStudent.student_id) inner join dekanat.StudentsResults on  dekanat.StudentsResults.student_id = Student.id WHERE student.id = ?";
+        RowMapper<Results> rowMapper = new ResultsMapper();
+        return this.jdbcTemplate.query(sql, rowMapper, id);
     }
 
     public void deleteResult(int id) {

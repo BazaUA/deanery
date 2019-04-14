@@ -1,7 +1,6 @@
 package dekanat.controller.courses;
 
 import com.sun.javafx.collections.ObservableListWrapper;
-import dekanat.controller.courses.CourseEditInfoController;
 import dekanat.dao.SemesterDAO;
 import dekanat.entity.CathedraEntity;
 import dekanat.entity.CourseEntity;
@@ -109,8 +108,10 @@ public class MainController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("layout/course/edit_course.fxml"));
         Parent root = fxmlLoader.load();
 
-        CourseEditInfoController courseEditInfoController = fxmlLoader.<CourseEditInfoController>getController();
-        courseEditInfoController.setCurrentCourseId(courseEntity.getId());
+
+        CourseEditInfoController courseEditInfoController1= fxmlLoader.<CourseEditInfoController>getController();
+        courseEditInfoController1.setCurrentCourseId(courseEntity.getId());
+
 
         Stage stage = new Stage();
         stage.setTitle("Редагувати курс");
@@ -221,7 +222,7 @@ public class MainController implements Initializable {
     }
 
     private void rerenderMainPage() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("layout/main.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("layout/course/mainCourse.fxml"));
         Stage stage = new Stage();
         stage.setTitle("Деканат");
         stage.setScene(new Scene(root, 600, 600));

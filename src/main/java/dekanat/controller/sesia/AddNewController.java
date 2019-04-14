@@ -74,7 +74,7 @@ public class AddNewController implements Initializable {
 
         newResult.setGroupId(groupsChoise.getSelectionModel().getSelectedItem().getId());
         newResult.setStudentId(studentsChoise.getSelectionModel().getSelectedItem().getId());
-        newResult.setGrade(studentGrade.getText());
+        newResult.setGrade(Integer.valueOf(studentGrade.getText()));
 
         resultsDao.createResults(newResult);
 

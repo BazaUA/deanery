@@ -23,7 +23,7 @@ public class Results {
 
     private int gradeId;
 
-    private String grade;
+    private int grade;
 
     public int getStudentId() {
         return studentId;
@@ -101,15 +101,18 @@ public class Results {
         return groupNumber;
     }
 
-    public void setGroupNumber(int groupNumber) {
+    public void
+
+
+    setGroupNumber(int groupNumber) {
         this.groupNumber = groupNumber;
     }
 
-    public String getGrade() {
+    public int getGrade() {
         return grade;
     }
 
-    public void setGrade(String grade) {
+    public void setGrade(int grade) {
         this.grade = grade;
     }
 

@@ -18,6 +18,16 @@ public class Student {
 
     private int totalCredits;
 
+    private int groupId;
+
+    public int getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(int groupId) {
+        this.groupId = groupId;
+    }
+
     public int getId() {
         return id;
     }
@@ -58,7 +68,7 @@ public class Student {
         this.endEducation = endEducation;
     }
 
-    public String getReasonToEndEducation(String string) {
+    public String getReasonToEndEducation() {
         return reasonToEndEducation;
     }
 
