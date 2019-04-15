@@ -4,6 +4,8 @@ import dekanat.entity.scheduleEntity.LabelValue;
 import dekanat.entity.scheduleEntity.Lesson;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 
 
@@ -12,6 +14,8 @@ public class EditController extends FormController {
     public static String currentAlert;
     @FXML
     public void handleSave(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Додано успішно. " , ButtonType.OK);
+        alert.showAndWait();
         LabelValue type = typeSelect.getValue();
         LabelValue nameSelectValue = nameSelect.getValue();
         String nameText = nameInput.getText();
@@ -26,6 +30,8 @@ public class EditController extends FormController {
             updateStream(lecturer.value, cathedraValue.value, semester, course, whenSelectValue.value, nameText);
         } else {
             updateGroup(lecturer.value, cathedraValue.value, semester, course, whenSelectValue.value,nameSelectValue.value, numberInput.getText());        }
+
+
     }
 
     public void updateStream(String lecturer, String cathedra_id,  String semester_id, String course_id, String schedule_id, String streamName ) {
