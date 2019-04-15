@@ -13,6 +13,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -74,16 +76,18 @@ public class AddNewController implements Initializable {
 
         newResult.setGroupId(groupsChoise.getSelectionModel().getSelectedItem().getId());
         newResult.setStudentId(studentsChoise.getSelectionModel().getSelectedItem().getId());
-        newResult.setGrade(Integer.valueOf(studentGrade.getText()));
+        newResult.setGrade(studentGrade.getText());
 
         resultsDao.createResults(newResult);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Додано успішно. ID: " , ButtonType.OK);
+        alert.showAndWait();
 
     }
 
 
     public void loadGroups(MouseEvent mouseEvent) {
-        int stId = studentsChoise.getSelectionModel().getSelectedItem().getId();
-        List<Group> studentGroups = groupDao.getGroupByStudent(stId);
+//        int stId = studentsChoise.getSelectionModel().getSelectedItem().getId();
+        List<Group> studentGroups = groupDao.getAllGroupPair();
         groupsChoise.setItems(new ObservableListWrapper<Group>(studentGroups));
     }
 }

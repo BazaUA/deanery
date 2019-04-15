@@ -306,7 +306,7 @@ public class MainController implements Initializable {
                     public void handle(TableColumn.CellEditEvent<Results, String> t) {
                         ((Results) t.getTableView().getItems().get(
                                 t.getTablePosition().getRow())
-                        ).setGrade(Integer.valueOf(t.getNewValue()));
+                        ).setGrade(t.getNewValue());
 
 
                         resultsDao.updateResult(t.getNewValue(),gradesList.getSelectionModel().getSelectedItem().getGradeId());
@@ -331,7 +331,7 @@ public class MainController implements Initializable {
     }
 
     public void addNewGrade(MouseEvent mouseEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("addNew.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("layout/sesia/addNew.fxml"));
         Stage stage = new Stage();
         stage.setTitle("Додати оцінку");
         stage.setScene(new Scene(root, 600, 400));

@@ -23,11 +23,7 @@ public class Results {
 
     private int gradeId;
 
-    private int grade;
-
-    public int getStudentId() {
-        return studentId;
-    }
+    private String grade;
 
     public int getResultId() {
         return resultId;
@@ -37,24 +33,12 @@ public class Results {
         this.resultId = resultId;
     }
 
+    public int getStudentId() {
+        return studentId;
+    }
+
     public void setStudentId(int studentId) {
         this.studentId = studentId;
-    }
-
-    public int getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(int groupId) {
-        this.groupId = groupId;
-    }
-
-    public int getGradeId() {
-        return gradeId;
-    }
-
-    public void setGradeId(int gradeId) {
-        this.gradeId = gradeId;
     }
 
     public String getStudentsName() {
@@ -97,36 +81,35 @@ public class Results {
         this.summarizeName = summarizeName;
     }
 
+    public int getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(int groupId) {
+        this.groupId = groupId;
+    }
+
     public int getGroupNumber() {
         return groupNumber;
     }
 
-    public void
-
-
-    setGroupNumber(int groupNumber) {
+    public void setGroupNumber(int groupNumber) {
         this.groupNumber = groupNumber;
     }
 
-    public int getGrade() {
+    public int getGradeId() {
+        return gradeId;
+    }
+
+    public void setGradeId(int gradeId) {
+        this.gradeId = gradeId;
+    }
+
+    public String getGrade() {
         return grade;
     }
 
-    public void setGrade(int grade) {
+    public void setGrade(String grade) {
         this.grade = grade;
-    }
-
-    @Override
-    public String toString() {
-        return "Results{" +
-                "studentsName='" + studentsName + '\'' +
-                ", courseName='" + courseName + '\'' +
-                ", cafedraName='" + cafedraName + '\'' +
-                ", lecturerName='" + lecturerName + '\'' +
-                ", summarizeName='" + summarizeName + '\'' +
-                ", groupNumber=" + groupNumber +
-                ", grade='" + grade + '\'' +
-                ", gradeId='" + gradeId + '\'' +
-                '}';
     }
 }

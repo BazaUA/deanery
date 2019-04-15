@@ -17,8 +17,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashSet;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 public class MainController implements Initializable {
 
@@ -158,9 +160,13 @@ public class MainController implements Initializable {
         Student student = table.getSelectionModel().getSelectedItem();
 
         List<Results> results = resultsDao.getResultsByStudentId(student.getId());
+        double sum = 0;
 
-        result = results.stream().mapToDouble(Results::getGrade).average().orElse(0);
+        for(Results resulttemp: results){
+            sum += Integer.valueOf(resulttemp.getGrade());
+        }
 
+        result = sum/results.size();
         Alert alert = new Alert(Alert.AlertType.INFORMATION, String.valueOf(result), ButtonType.OK);
         alert.getDialogPane().setMinWidth(600);
         alert.showAndWait();
@@ -175,6 +181,26 @@ public class MainController implements Initializable {
     }
 
     public void getLearnedCourses(MouseEvent mouseEvent) {
+        String result = "";
+        if (!checkForNoSelectedItem(table)) {
+            return;
+        }
+
+        Student student = table.getSelectionModel().getSelectedItem();
+
+        List<Results> results = resultsDao.getResultsByStudentId(student.getId());
+        Set<String> stringSet = new HashSet<>();
+        for(Results results1:results){
+            stringSet.add(results1.getCourseName());
+        }
+
+        for(String name: stringSet){
+            result+=name+'\n';
+        }
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, result, ButtonType.OK);
+        alert.getDialogPane().setMinWidth(600);
+        alert.showAndWait();
     }
 
     public void getAllMarks(MouseEvent mouseEvent) {
