@@ -30,7 +30,7 @@ public class EditController extends FormController {
 
     public void updateStream(String lecturer, String cathedra_id,  String semester_id, String course_id, String schedule_id, String streamName ) {
         try {
-            String query = "UPDATE deanery.Lessons SET "+
+            String query = "UPDATE deanery.lessons SET "+
                     "schedule_id = "+schedule_id+","+
                     "lecturer_cathedra_id = "+cathedra_id+","+
                     "course_cathedra_id = "+cathedra_id+","+
@@ -43,7 +43,7 @@ public class EditController extends FormController {
 
             executeQuery(query);
 
-            String streamInsertQuery=  "UPDATE deanery.Stream SET "+
+            String streamInsertQuery=  "UPDATE deanery.stream SET "+
                     "name='"+ streamName + "' WHERE id = "+currentAlert+"\n";
             System.out.println(streamInsertQuery);
             executeQuery(streamInsertQuery);
@@ -55,7 +55,7 @@ public class EditController extends FormController {
 
     public void updateGroup(String lecturer, String cathedra_id,  String semester_id, String course_id, String schedule_id, String stream_id, String group_number) {
         try {
-            String query = "UPDATE deanery.Lessons SET "+
+            String query = "UPDATE deanery.stream SET "+
                     "schedule_id = "+schedule_id+","+
                     "lecturer_cathedra_id = "+cathedra_id+","+
                     "course_cathedra_id = "+cathedra_id+","+
@@ -66,7 +66,7 @@ public class EditController extends FormController {
                     " WHERE id = "+currentAlert+"\n";
 
             executeQuery(query);
-            String groupInsertQuery= "UPDATE deanery.Group SET " +
+            String groupInsertQuery= "UPDATE deanery.groups SET " +
                     "group_no="+group_number+","+
                 "stream_id="+stream_id+ " WHERE id = "+currentAlert+"\n";
             System.out.println(groupInsertQuery);
@@ -79,20 +79,20 @@ public class EditController extends FormController {
     @FXML
     public void handleDelete(){
         try {
-            String query = "DELETE FROM deanery.Group WHERE id="+currentAlert;
+            String query = "DELETE FROM deanery.groups WHERE id="+currentAlert;
             executeQuery(query);
         } catch (Exception e){
             e.printStackTrace();
         }
     try {
-        String query = "DELETE FROM deanery.Stream WHERE id="+currentAlert;
+        String query = "DELETE FROM deanery.stream WHERE id="+currentAlert;
         executeQuery(query);
     } catch (Exception e){
         e.printStackTrace();
     }
 
 
-        String query = "DELETE FROM deanery.Lessons WHERE id="+currentAlert;
+        String query = "DELETE FROM deanery.lessons WHERE id="+currentAlert;
     try {
         executeQuery(query);
     } catch (Exception e){

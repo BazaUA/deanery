@@ -34,11 +34,11 @@ public class SelectController {
     }
 
     public ObservableList<LabelValue> getLecturersList(){
-       return  getSelectOptions("SELECT * FROM Lecturers", "name", "id");
+       return  getSelectOptions("SELECT * FROM lecturers", "name", "id");
     }
 
     public ObservableList<LabelValue> getCathedrasList(){
-        return getSelectOptions("SELECT * FROM Cathedras", "name", "id");
+        return getSelectOptions("SELECT * FROM cathedras", "name", "id");
     }
 
     public ObservableList<LabelValue> getSemestersOptions(){
@@ -46,7 +46,7 @@ public class SelectController {
         Connection connection = DbController.getConnection();
         Statement st;
         ResultSet rs;
-        String query ="Select * from Semesters";
+        String query ="Select * from semesters";
         try {
             st = connection.createStatement();
             rs = st.executeQuery(query);
@@ -66,7 +66,7 @@ public class SelectController {
         Connection connection = DbController.getConnection();
         Statement st;
         ResultSet rs;
-        String query ="SELECT * FROM `Group`";
+        String query ="SELECT * FROM `groups`";
         try {
             st = connection.createStatement();
             rs = st.executeQuery(query);
@@ -109,10 +109,10 @@ public class SelectController {
         Connection connection = DbController.getConnection();
         Statement st;
         ResultSet rs;
-        String query =" SELECT Lessons.id, type, lecturer_id, group_no, name, semester_id, course_id, schedule_id from Lessons\n" +
-                "    LEFT OUTER JOIN `Group` on Lessons.id = `Group`.id\n" +
-                "    LEFT OUTER JOIN `Stream` on Stream.id = Lessons.id\n" +
-                "    where Lessons.id ="+id+";";
+        String query =" SELECT lessons.id, type, lecturer_id, group_no, name, semester_id, course_id, schedule_id from lessons\n" +
+                "    LEFT OUTER JOIN `groups` on lessons.id = `groups`.id\n" +
+                "    LEFT OUTER JOIN `stream` on stream.id = lessons.id\n" +
+                "    where lessons.id ="+id+";";
         try {
             st = connection.createStatement();
             rs = st.executeQuery(query);
@@ -185,10 +185,10 @@ public class SelectController {
         return list;
     }
     public ObservableList<LabelValue> getCourseOptions(){
-        return getSelectOptions("SELECT * FROM Courses", "name", "id");
+        return getSelectOptions("SELECT * FROM courses", "name", "id");
     }
 
     public ObservableList<LabelValue> getSteamNameOptions(){
-        return getSelectOptions("SELECT * FROM Stream", "name", "id");
+        return getSelectOptions("SELECT * FROM stream", "name", "id");
     }
 }

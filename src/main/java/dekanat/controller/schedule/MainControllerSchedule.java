@@ -114,28 +114,28 @@ public class MainControllerSchedule implements Initializable {
     public ObservableList<LessonsDTO> getLessonsList(String subquery){
         ObservableList<LessonsDTO> lessonsList = FXCollections.observableArrayList();
         Connection connection = DbController.getConnection();
-        String query = "SELECT Lessons.id as id,\n" +
+        String query = "SELECT lessons.id as id,\n" +
                 "    L2.name as lecturer,\n" +
                 "    C.name as course_name,\n" +
                 "    C2.name as cathedra,\n" +
                 "    S3.semester as semester,\n" +
                 "    S3.year as semester_year,\n" +
-                "    Lessons.type as type,\n" +
+                "    lessons.type as type,\n" +
                 "    S2.Day as lesson_day,\n" +
                 "    S2.LessonOrder as lesson_no,\n" +
-                "    A.hall as hall,\n" +
+                "    C2.hall as hall,\n" +
                 "    A.num as auditory_number\n" +
-                "from Lessons\n" +
-                "  LEFT OUTER JOIN `Group` G on Lessons.id = G.id\n" +
-                "  LEFT OUTER JOIN `Stream` S on Lessons.id = S.id\n" +
-                "  LEFT OUTER JOIN `Courses` C on Lessons.course_id = C.id\n" +
-                "  LEFT OUTER JOIN Cathedras C2 on C.cathedra_id = C2.id\n" +
-                "  LEFT OUTER JOIN Schedule S2 on Lessons.schedule_id = S2.id\n" +
-                "  LEFT OUTER JOIN Semesters S3 on Lessons.semester_id = S3.id\n" +
-                "  LEFT OUTER JOIN AuditoryToLessons ATL on Lessons.id = ATL.lesson_id\n" +
-                "  LEFT OUTER JOIN  Auditory A on ATL.auditory_id = A.id\n" +
-                "   JOIN Lecturers L2 on L2.id = lecturer_id\n";
-        if(subquery.equals("")) {
+                "from lessons\n" +
+                "  LEFT OUTER JOIN `groups` G on lessons.id = G.id\n" +
+                "  LEFT OUTER JOIN `stream` S on lessons.id = S.id\n" +
+                "  LEFT OUTER JOIN `courses` C on lessons.course_id = C.id\n" +
+                "  LEFT OUTER JOIN cathedras C2 on C.cathedra_id = C2.id\n" +
+                "  LEFT OUTER JOIN schedule S2 on lessons.schedule_id = S2.id\n" +
+                "  LEFT OUTER JOIN semesters S3 on lessons.semester_id = S3.id\n" +
+                "  LEFT OUTER JOIN auditorytolessons ATL on lessons.id = ATL.lesson_id\n" +
+                "  LEFT OUTER JOIN  auditory A on ATL.auditory_id = A.id\n" +
+                "   JOIN lecturers L2 on L2.id = lecturer_id\n";
+        if(!subquery.equals("")) {
             query+= "\n" + subquery;
         }
 

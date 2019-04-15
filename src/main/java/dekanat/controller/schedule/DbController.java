@@ -1,13 +1,16 @@
 package dekanat.controller.schedule;
 
+import dekanat.dao.MyDataSourceFactory;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class DbController {
     public static Connection getConnection() {
+
         Connection conn;
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/dekanat","root","root");
+            conn = MyDataSourceFactory.getMySQLDataSource().getConnection();
             return conn;
         }
         catch (Exception e){

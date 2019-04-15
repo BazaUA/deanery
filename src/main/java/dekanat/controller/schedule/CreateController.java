@@ -30,14 +30,14 @@ public class CreateController extends FormController {
 
     public void createStream(String lecturer, String cathedra_id,  String semester_id, String course_id, String schedule_id, String streamName ) {
         try {
-        String query = "INSERT INTO deanery.Lessons (type, lecturer_id, lecturer_cathedra_id, semester_id, course_id, course_cathedra_id, schedule_id) VALUES ('stream', "
+        String query = "INSERT INTO deanery.lessons (type, lecturer_id, lecturer_cathedra_id, semester_id, course_id, course_cathedra_id, schedule_id) VALUES ('stream', "
                 +lecturer+
                 ", "+cathedra_id+", "+semester_id+", "+course_id+", "+cathedra_id+", "+schedule_id+");\n";
         System.out.println(query);
         executeQuery(query);
 
-        String lastID = SelectController.getLastId("SELECT id FROM Lessons ORDER BY id DESC LIMIT 1;\n");
-        String streamInsertQuery= "INSERT INTO deanery.Stream (name, id) VALUES ('" +streamName+"',"+lastID+");\n";
+        String lastID = SelectController.getLastId("SELECT id FROM lessons ORDER BY id DESC LIMIT 1;\n");
+        String streamInsertQuery= "INSERT INTO deanery.stream (name, id) VALUES ('" +streamName+"',"+lastID+");\n";
         System.out.println(streamInsertQuery);
         executeQuery(streamInsertQuery);
         } catch(Exception e){
@@ -47,13 +47,13 @@ public class CreateController extends FormController {
     }
     public void createGroup(String lecturer, String cathedra_id,  String semester_id, String course_id, String schedule_id, String stream_id, String group_number) {
         try {
-            String query = "INSERT INTO deanery.Lessons (type, lecturer_id, lecturer_cathedra_id, semester_id, course_id, course_cathedra_id, schedule_id) VALUES ('group', "
+            String query = "INSERT INTO deanery.lessons (type, lecturer_id, lecturer_cathedra_id, semester_id, course_id, course_cathedra_id, schedule_id) VALUES ('group', "
                     +lecturer+
                     ", "+cathedra_id+", "+semester_id+", "+course_id+", "+cathedra_id+", "+schedule_id+");\n";
             System.out.println(query);
             executeQuery(query);
-            String lastID = SelectController.getLastId("SELECT id FROM Lessons ORDER BY id DESC LIMIT 1;\n");
-            String groupInsertQuery= "INSERT INTO deanery.Group (group_no, stream_id, id) VALUES (" +group_number+","+stream_id+","+lastID+");\n";
+            String lastID = SelectController.getLastId("SELECT id FROM lessons ORDER BY id DESC LIMIT 1;\n");
+            String groupInsertQuery= "INSERT INTO deanery.group (group_no, stream_id, id) VALUES (" +group_number+","+stream_id+","+lastID+");\n";
             System.out.println(groupInsertQuery);
             executeQuery(groupInsertQuery);
         } catch(Exception e){
