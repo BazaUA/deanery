@@ -2,12 +2,17 @@ package dekanat.controller.schedule;
 
 import dekanat.entity.scheduleEntity.LabelValue;
 import dekanat.entity.scheduleEntity.LessonsDTO;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -90,7 +95,15 @@ public class MainControllerSchedule implements Initializable {
 
     @FXML
     private void handleCreate() {
-        this.navigator.activate("create");
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("layout/schedule/Edit.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Редагувати");
+            stage.setScene(new Scene(root, 600, 400));
+            stage.show();
+        }catch(Exception e) {
+
+        }
     }
 
     private SelectController selects;

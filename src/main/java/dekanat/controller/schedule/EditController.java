@@ -26,6 +26,8 @@ public class EditController extends FormController {
             updateStream(lecturer.value, cathedraValue.value, semester, course, whenSelectValue.value, nameText);
         } else {
             updateGroup(lecturer.value, cathedraValue.value, semester, course, whenSelectValue.value,nameSelectValue.value, numberInput.getText());        }
+
+
     }
 
     public void updateStream(String lecturer, String cathedra_id,  String semester_id, String course_id, String schedule_id, String streamName ) {
